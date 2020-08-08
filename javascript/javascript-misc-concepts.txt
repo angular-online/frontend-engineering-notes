@@ -1,0 +1,50 @@
+Self calling functions / Immediately invoked functions
+------------------------------------------------------
+(function() {
+  
+	var a = 5, b=10;
+  console.log(a, b);
+	
+})()
+
+Ex: self invoked function folder
+
+- All the variables become local to that self calling function block only. 
+- Self calling functions can be used to prevent polluting global scope.
+
+Closure
+-------
+
+Prototype
+---------
+
+AJAX
+====
+AJAX - Asynchronous Javascript And Xml
+
+It's not a programming language. It's a technique to hit server and change webpage content without re-loading page.
+
+function getTodos(success, failure) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "https://todos-api-dev.herokuapp.com/todos");
+  xhttp.send();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      success(this.responseText);
+    } else {
+      failure();
+    }
+  };
+}
+
+The onreadystatechange property specifies a function to be executed every time the status of the XMLHttpRequest object changes.
+When readyState property is 4 and the status property is 200, the response is ready.
+
+Different readyStates available are below,
+0	UNSENT - Client has been created. open() not called yet.
+1	OPENED - open() has been called.
+2	HEADERS_RECEIVED - send() has been called, and headers and status are available.
+3	LOADING	- Downloading; responseText holds partial data.
+4	DONE - The operation is complete.
+
+Ex: ajax folder

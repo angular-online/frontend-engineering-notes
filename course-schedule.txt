@@ -16,3 +16,23 @@ Session2
 - Strings
 - Type Conversions
 - Functions
+- Arrays
+
+Session3
+--------
+- Objects
+- window Object
+- 'this' keyword behaviour
+- DOM
+- Events
+- Timing methods
+
+Session4
+--------
+- localStorage
+- sessionStorage
+- async, await, Promise
+- NPM
+
+Session5
+--------

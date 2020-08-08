@@ -340,12 +340,12 @@ Functions
 =========
 // Named function 
 function greet(name) { 
-  console.log("Hi, "+name) 
+  console.log("Hi, "+name); 
 } 
 
 // Anonymous function
 var greet = function(name) { 
-  console.log("Hi, "+name) 
+  console.log("Hi, "+name);
 }
 
 greet('John');
@@ -363,11 +363,12 @@ Callback function
 We can pass one function as parameter to another function, 
 
 function greet(name) { 
-  console.log("Hi, "+name) 
+  console.log("Hi, "+name); 
 } 
 
 function greetUser(callback){
-	callback("John");
+	var userName = "John";
+  callback(userName);
 }
 
 greetUser(greet);
@@ -377,7 +378,7 @@ Here greet is a call back function.
 Instead of passing function using it's name, we can define the function while passing it.
 
 greetUser(function(name) { 
-  console.log("Hi, "+name) 
+  console.log("Hi, "+name); 
 });
 
 Below are some example callback functions in javascript,
@@ -387,9 +388,20 @@ Array forEach() method accepts a callback function to handle the iterated elemen
 var arr = ["Why", "learn", "JavaScript"];
 
 arr.forEach(function(value, index){
-  console.log(value);
   console.log(index);
+  console.log(value);
 });
+
+- Here we teached forEach method that what functionality to do for every iteration.
+- We configured forEach method to perform some operation for every iteration.
+
+forEach method pseudo code
+--------------------------
+arr.forEach = function(callback){
+  for(var i=0; i<arr.length; i++) {
+    callback(arr[i], i);
+  }
+}
 
 Array map() method accepts a callback function to manipulate the elements.
 
@@ -409,62 +421,72 @@ var minorAges = ages.filter(function (value, index){
   return value <= 18;
 }); // [4, 9, 16]
 
-Ex: examples/ajax folder
+Callback function custom example
+--------------------------------
+var userObj = {
+  firstName: 'George',
+  middleName: 'W',
+  lastName: 'Bush',
+  getTwoWordName: function() {
+    return this.middleName+' '+this.lastName;
+  }
+};
 
-Self calling functions / Immediately invoked functions
-------------------------------------------------------
-(function() {
-  
-	var a = 5, b=10;
-  console.log(a, b);
-	
-})()
+userObj.getTwoWordName(); // Always returns "W Bush"
 
-all the variables become local to that self calling function block only.
+We can make getTwoWordName() method using callback functions.
 
-Constructor function: It is used to create objects.
----------------------
+var userObj = {
+  firstName: 'George',
+  middleName: 'W',
+  lastName: 'Bush',
+  getTwoWordName: function(buildName) {
+    return buildName(this.firstName, this.middleName, this.lastName);
+  }
+};
+
+// In dashboard page, I want to display user first and last name.
+userObj.getTwoWordName(function(first, middle, last){
+  return first+' '+ last;
+}); // Returns 'George Bush'
+
+// In profile page, I want to display user middle and last name.
+userObj.getTwoWordName(function(first, middle, last){
+  return middle+' '+ last;
+}); // Returns 'W Bush'
+
+- In first way functionality of 'getTwoWordName' method is hard coded.
+- In second way, we told 'getTwoWordName' method what to do.
+- we passed functionality to 'getTwoWordName' method.
+- We configured 'getTwoWordName' method to do something.
+
+Constructor function
+--------------------
+- ES5 Constructor functions are equivalent to Classes in other languages.
+- We can create objects for constructor functions.
+
 function User() {
 	this.name = 'john';
 	this.age = 30;
+  getName: function() {
+    return this.name;
+  }
 }
+
 var user = new User();
+
+Below are few built-in constructor function of javascript. 
+var obj = new Object();
+var str = new String();
+var num = new Number();
+var arr = new Array();
 
 instanceof operator
 -------------------
-- Used for checking type of custom objects
+- Used for checking type of an object
 - Ex: user instanceof User // true
-
-AJAX
-====
-AJAX - Asynchronous Javascript And Xml
-
-It's not a programming language. It's a technique to hit server and change webpage content without re-loading page.
-
-function getTodos(success, failure) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.open("GET", "https://todos-api-dev.herokuapp.com/todos");
-  xhttp.send();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      success(this.responseText);
-    } else {
-      failure();
-    }
-  };
-}
-
-The onreadystatechange property specifies a function to be executed every time the status of the XMLHttpRequest object changes.
-When readyState property is 4 and the status property is 200, the response is ready.
-
-Different readyStates available are below,
-0	UNSENT - Client has been created. open() not called yet.
-1	OPENED - open() has been called.
-2	HEADERS_RECEIVED - send() has been called, and headers and status are available.
-3	LOADING	- Downloading; responseText holds partial data.
-4	DONE - The operation is complete.
-
-Ex: ajax folder
+- Ex: [] instanceof Array // true
+- Ex: [] instanceof String // false
 
 Arrays
 ======
@@ -1004,7 +1026,7 @@ package-lock.json file
 - Help to install same version of dependency across all team members.
 - It will record which version of dependency installed for the first installer. It make sures to install the same version for all other team mates.
 - We need to push this file to git repo.
-- For example, If I specify "jquery": "*" and jquery 2.0.0 installed for me. package-lock.json file will record my version and install the same for all other team mates. Otherwise, each team mate get different version and causing different different bugs. 
+- For example, If I specify "jquery": "*" and jquery 2.0.0 installed for me. package-lock.json file will record my version and install the same for all other team mates. Otherwise, each team mate get different version and causing different bugs. 
 
 Sites to Refer:
 ===============
