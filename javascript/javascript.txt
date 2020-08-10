@@ -468,7 +468,7 @@ Constructor function
 function User() {
 	this.name = 'john';
 	this.age = 30;
-  getName: function() {
+  this.getName = function() {
     return this.name;
   }
 }
