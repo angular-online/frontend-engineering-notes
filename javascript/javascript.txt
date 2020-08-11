@@ -892,7 +892,7 @@ elem.removeEventListener(type, handlerFunction)
 
 mousedown - Triggered by an element when a mouse button is pressed down over it
 mouseup   - Triggered by an element when a mouse button is released over it
-mouseove  - Triggered by an element when the mouse comes over it
+mouseover  - Triggered by an element when the mouse comes over it
 mouseout  - Triggered by an element when the mouse goes out of it
 mousemove - Triggered by an element on every mouse move over it.
 click     - Triggered by a mouse click: mousedown and then mouseup over an element
