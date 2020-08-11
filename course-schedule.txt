@@ -16,23 +16,38 @@ Session2
 - Strings
 - Type Conversions
 - Functions
-- Arrays
 
 Session3
 --------
+- Arrays
 - Objects
 - window Object
 - 'this' keyword behaviour
 - DOM
-- Events
-- Timing methods
 
 Session4
 --------
+- Events
+- Timing methods
 - localStorage
 - sessionStorage
-- async, await, Promise
 - NPM
 
 Session5
 --------
+- let, const
+- Destructuring
+- Default parameters
+- Rest parameters
+- Spread operator
+- Template literals
+- Arrow Functions
+
+Session6
+--------
+- Classes
+- Symbols
+- for...of loop
+- Object changes
+- Array changes
+- Modules

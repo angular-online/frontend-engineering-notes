@@ -961,7 +961,7 @@ localStorage
 
 localStorage is domain specific. We can't access localStorage of one domain from another domain.
 
-We store the data as key, value pairs in localStorage. 
+We store the data as key: value pairs in localStorage. 
 
 localStorage.setItem("key", "value");
 
@@ -982,6 +982,22 @@ CORRECT:
 localStorage.setItem('user', JSON.stringify({name: 'John', age: 25}));
 var user = localStorage.getItem('user'); // "{name: 'John', age: 25}"
 user = JSON.parse(user); // {name: 'John', age: 25}
+
+localStorage.clear(); // Clear everything from localStorage
+
+localStorage.length; // Returns the length of the localStorage
+
+sessionStorage
+==============
+sessionStorage is tab specific. Means, page specific. Another page of same domain will have different sessionStorage.
+
+It is not persistent. On closing the tab, it will be erased.
+
+sessionStorage.setItem('name', 'john');
+sessionStorage.getItem('name');
+sessionStorage.removeItem('name');
+sessionStorage.clear(); // Clear everything
+sessionStorage.length; 
 
 NPM
 ===
@@ -1028,8 +1044,8 @@ package-lock.json file
 - We need to push this file to git repo.
 - For example, If I specify "jquery": "*" and jquery 2.0.0 installed for me. package-lock.json file will record my version and install the same for all other team mates. Otherwise, each team mate get different version and causing different bugs. 
 
-Sites to Refer:
-===============
+Sites to Refer
+==============
 https://www.w3schools.com/
 
 http://javascript.info/
