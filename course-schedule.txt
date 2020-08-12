@@ -31,20 +31,21 @@ Session4
 - Timing methods
 - localStorage
 - sessionStorage
-- NPM
+
 
 Session5
 --------
+- NPM
 - let, const
+
+Session6
+--------
 - Destructuring
 - Default parameters
 - Rest parameters
 - Spread operator
 - Template literals
 - Arrow Functions
-
-Session6
---------
 - Classes
 - Symbols
 - for...of loop

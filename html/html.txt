@@ -823,7 +823,7 @@ Below are few new HTML5 elements.
 <mark> 	     - Defines marked/highlighted text
 etc ...
 
-Semantic Elements:
+Semantic Elements
 - - - - - - - - -
 Semantic elements = elements with a meaning.
 
