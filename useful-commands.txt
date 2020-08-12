@@ -9,6 +9,8 @@ Zoom room etiquette
 - Zoom room url is same for all the sessions. No Password required.
 - https://zoom.us/j/9515302390
 - Zoom meeting id and my phone number are same. 
+- The language of communication is strictly English. No local languages.
+- If the meeting room suddenly closes/struck, it means I got power or network issue. I will resolve and open the room again in 2 min. Please log in again immediately.
 
 Angular CLI:
 ============

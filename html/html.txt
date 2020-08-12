@@ -23,7 +23,7 @@ Below is a basic html page,
     </body>
 </html>
 
-HTML tags normally come in pairs like <p> and </p>. The first tag in a pair is the start tag / opening tag, the second tag is the end tag / closing tag. 
+HTML tags normally come in pairs like <p> and </p>. The first tag in a pair is the start tag/opening tag, the second tag is the end tag/closing tag. 
 
 <!DOCTYPE>
 ----------
@@ -166,7 +166,7 @@ External References
 External style sheets can be referenced with a full URL.
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
-CDN - Content Delivery Network - There are lot of CDN's available for bootstrap and other css and js frameworks. CDN's deliver the content fast. But, style file not available in our server. 
+CDN - Content Delivery Network - There are lot of CDN's available for bootstrap and other css and js frameworks. CDN's deliver the content fast. But, style file do not available in our server. 
 
 One advantage with CDN is, load on servers will decrease a little bit by loading data from other server.
 
@@ -209,7 +209,7 @@ Ex: anchor-tag-bookmark.html
 Images
 - - --
 Different kind of images
-Four kind of images we use jpeg, png, svg, gif
+Four kind of images we can use jpeg, png, svg, gif
 Ex: images.html
 
 Gif loaders: https://loading.io/, http://www.ajaxload.info/ and many other sites available.

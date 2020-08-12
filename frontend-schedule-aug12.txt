@@ -1,0 +1,7 @@
+Session1
+--------
+- HTML
+- Course overview
+- Softwares required
+- Github url
+- Zoom room etiquette
