@@ -54,14 +54,6 @@ HTML links are defined with anchor tag <a>.
 
 The link's destination is specified in the href attribute. 
 
-HTML images are defined with the <img> tag.
-
-<img src="person.jpg" alt="person" width="104" height="142">
-
-The source file (src), alternative text (alt), width, and height are attributes.
-
-HTML buttons are defined with the <button> tag. <button>Click me</button>
-
 HTML elements with no content are called empty elements. Empty elements do not have an end tag, such as the <br> element (which indicates a line break).
 
 Empty elements can be "closed" in the opening tag like this: <br />
