@@ -272,7 +272,7 @@ Template literals starts and end with Backtic(`). ${x} replace the value of x in
 Substitute the values and Execute the expressions:
 let x=1,y=2;
 let template = 'Addition of ' + x + ' and ' + y + ' is ' + (x+y)
-let template = `Addition of ${x} and ${y} is ${x+y}`;
+let template2 = `Addition of ${x} and ${y} is ${x+y}`;
 
 New lines don't break the code:
 let html = `<div>
