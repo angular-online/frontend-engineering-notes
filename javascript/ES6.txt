@@ -706,6 +706,8 @@ var arr = Array.from(arrayLike);
 
 Modules
 =======
+Code Repo: https://github.com/angular-online/webpack-and-es6-modules
+
 In JavaScript each file is a module and all objects defined in the file belong to that module.
 
 Another defination: Any javascript file which contains export or import statement can be considered as a module. 

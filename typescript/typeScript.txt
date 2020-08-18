@@ -1,7 +1,7 @@
 TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.
 
-Installation:
-=============
+Installation
+============
 npm install -g typescript
 
 tsc --version
@@ -22,22 +22,22 @@ tsc demo.ts --target es6
 
 In .ts files we can write valid JavaScript. All valid JavaScript statements are valid TypeScript statements.
 
-Data Types:
-===========
+Data Types
+==========
 JavaScript is loosely typed language. But, typescript contains datatypes, we need to specify datatype of a variable while defining.
 
 let isDone: boolean = false;
 
 'isDone' is variable name, 'boolean' is datatype.
 
-Boolean:
---------
+Boolean
+-------
 boolean datatype holds true/false.
 
 let isLoading: boolean = true;
 
-Number:
--------
+Number
+------
 As like JavaScript, in TypeScript also all kinds of numbers comes under 'number' data type.
 
 let decimalNum: number = 6;
@@ -46,8 +46,8 @@ let hexNum: number = 0xf00d;
 let binaryNum: number = 0b1010;
 let octalNum: number = 0o744;
 
-String:
--------
+String
+------
 'string' data type holds text data.
 
 let color: string = "blue"; \\ Double quotes 
@@ -55,16 +55,16 @@ color = 'red'; \\ Single quotes
 color = `green`; \\ Back tick
 
 let fullName: string = `John Doe`;
-let sentence: string = `Hello, my name is ${ fullName }`
+let sentence: string = `Hello, my name is ${ fullName }`;
 
-Array:
-------
+Array
+-----
 let list: number[] = [1, 2, 3]; // Numerical array
 
 let list: Array<number> = [1, 2, 3];
 
-Any:
-----
+Any
+---
 If we don't know type of variable at the time of defining the variable then we need to opt for 'any' kind. Sometimes we get data from user/third-party libraries.
 
 any accept any kind of data.
@@ -76,8 +76,8 @@ notSure = false;
 let list: any[] = [1, true, "free"];
 list[1] = 100;
 
-Void:
------
+Void
+----
 'void' is used to represent the absence of having any type.
 
 function warnUser(): void {
@@ -88,8 +88,8 @@ Declaring variables of type void is not useful because you can only assign undef
 
 let unusable: void = undefined;
 
-Null and Undefined:
--------------------
+Null and Undefined
+------------------
 In TypeScript, both undefined and null actually have their own types named undefined and null respectively. Much like void, they’re not extremely useful on their own:
 
 let u: undefined = undefined;
@@ -109,18 +109,18 @@ While using strictNullChecks, if we want to accept 'number' or 'undefined' or 'n
 let num: number|undefined|null = 123;
 num = null;
 
-Union Types:
-------------
+Union Types
+-----------
 let age: number | string;
 age = 25;
 age = '25y';
 
-Conclusion of Datatypes:
------------------------- 
+Conclusion of Datatypes
+-----------------------
 If we use data types, we can catch most of the errors / exceptions in the compilation phase itself.
 
-Type assertions:
-----------------
+Type assertions
+---------------
 A type assertion is like a type cast in other languages.
 
 Two syntaxes available for type assertion:
@@ -152,8 +152,8 @@ let list = [123,'test', true];
 
 list will become union of (number | string | boolean)[].
 
-Destructuring:
-==============
+Destructuring
+=============
 // Array Destructuring with datatypes
 let [first, second]: [number, number] = [1,2];
 console.log(first);
@@ -171,8 +171,8 @@ console.log(b);
 
 '?' represents the optional value / parameter. If we don't specify '?' above, we will get error in compilation.
 
-Interfaces:
-===========
+Interfaces
+==========
 We can use interfaces as custom datatypes.
 
 Interfaces define the shape of a value. TypeScript always check whether the value is in specified format or not.
@@ -201,8 +201,8 @@ printLabel(myObj);
 
 myObj contains 'size' property also. But, type checker checks for all the properties specified in the interface are available or not.
 
-Optional Properties:
---------------------
+Optional Properties
+-------------------
 Not all properties of an interface may be required. Some exist under certain conditions or may not be there at all.
 
 Optional properties denoted by a ? at the end of the property name in the declaration.
@@ -230,8 +230,8 @@ function createSquare(config: SquareConfig): Square {
 
 let mySquare = createSquare({color: "black"});
 
-Readonly properties:
---------------------
+Readonly properties
+-------------------
 Some properties should only be modifiable when an object is first created. You can specify this by putting readonly before the name of the property.
 
 interface Point {
@@ -243,14 +243,14 @@ let p1: Point = { x: 10, y: 20 };
 
 p1.x = 5; // error!
 
-readonly vs const:
-------------------
+readonly vs const
+-----------------
 Variables use const whereas object properties use readonly.
 const is for variables.
 readonly is for properties of objects.
 
-Function Interfaces:
---------------------
+Function Interfaces
+-------------------
 Interfaces can be used to describe the shape of function.
 
 interface SearchFunc {
@@ -315,8 +315,8 @@ class Greeter {
 
 let greeter = new Greeter("world");
 
-Inheritance:
-------------
+Inheritance
+-----------
 class Animal {
     move(distanceInMeters: number = 0) {
         console.log(`Animal moved ${distanceInMeters}m.`);
@@ -333,8 +333,8 @@ const horse = new Horse();
 horse.run();
 horse.move(10);
 
-super:
-------
+super
+-----
 class Animal {
     name: string;
     constructor(theName: string) { this.name = theName; }
@@ -354,10 +354,10 @@ class Horse extends Animal {
 let tom: Horse = new Horse("Tommy the Palomino");
 tom.move(34);
 
-Public, private, and protected modifiers:
------------------------------------------
-public:
--------
+Public, private, and protected modifiers
+----------------------------------------
+public
+------
 By default all class members are public. We don’t need to mention it. But, we can set public explicitly if required.
 
 class Animal {
@@ -368,8 +368,8 @@ class Animal {
     }
 }
 
-private:
---------
+private
+-------
 When a member is marked private, it cannot be accessed from outside of its containing class.
 
 class Animal {
@@ -380,9 +380,9 @@ class Animal {
 var animalObj = new Animal("Cat");
 animalObj.name; // Error: 'name' is private;
 
-protected:
-----------
-Protected peoperties can be accessed only in own class and it's child classes. Protected properties can't be accessed on own class instance also. 
+protected
+---------
+Protected properties can be accessed only in own class and it's child classes. Protected properties can't be accessed on own class instance also. 
 
 class Person {
     protected name: string;
@@ -416,8 +416,8 @@ let person = new Person('John'); // error
 
 If we use 'protected' on constructor method, we can’t create object for it, but we can extend that class.
 
-Readonly modifier:
-------------------
+Readonly modifier
+-----------------
 we can make properties readonly by using the readonly keyword. Readonly properties must be initialized at their declaration or in the constructor. 
 
 class Octopus {
@@ -430,8 +430,8 @@ class Octopus {
 let octObj = new Octopus("Man with the 8 strong legs");
 octObj.name = "Man with the 3-piece suit"; // error! name is readonly.
 
-Parameter properties:
----------------------
+*** Parameter properties ***
+----------------------------
 In our last example, we had to declare a readonly member name and a constructor parameter theName in the Octopus class, and we then immediately set name to theName. This turns out to be a very common practice. Parameter properties let you create and initialize a member in one place. Here’s a further revision of the previous Octopus class using a parameter property:
 
 class Octopus {
@@ -445,8 +445,8 @@ Notice how we dropped 'theName' altogether and just use the shortened 'readonly 
 
 We can use any modifier like public, private, protected, and readonly before parameter properties.
 
-Accessors (getters/setters):
-----------------------------
+Accessors (getters/setters)
+---------------------------
 let isLoggedIn = true;
 
 class Employee {
@@ -473,8 +473,8 @@ let employee = new Employee("John");
 console.log(employee.fullName); // getter
 employee.fullName = "Bob Smith"; // setter
 
-Static Properties:
-------------------
+Static Properties
+-----------------
 Static members visible on the class itself rather than on the instances. 
 
 class Grid {
@@ -492,8 +492,8 @@ console.log(Grid.origin);
 let grid1 = new Grid(1.0);
 console.log(grid1.origin); // Get an error. We can't access static members on class instance.
 
-Class datatype:
----------------
+Class datatype
+--------------
 class Greeter {
     greeting: string;
     constructor(message: string) {
@@ -521,15 +521,15 @@ let myAdd = function(x: number, y: number): number { return x + y; }; // Anonymo
 
 TypeScript can figure out the return type by looking at the return statements, so we can also optionally leave this off in many cases.
 
-function type:
---------------
+function type
+-------------
 let myAdd: (x: number, y: number) => number =  function(x: number, y: number): number { return x + y; };
 let myAdd: {(x: number, y: number): number} =  function(x: number, y: number): number { return x + y; };
 
 myAdd is a variable of type (x: number, y: number) => number. It should accept two numerical parameters and return numeric.
 
-Optional and Default Parameters:
---------------------------------
+Optional and Default Parameters
+-------------------------------
 In TypeScript, every parameter is assumed to be required by the function. When the function is called the compiler will check that the user has provided a value for each parameter. The number of arguments given to a function has to match the number of parameters the function expects.
 
 function buildName(firstName: string, lastName: string) {
@@ -563,8 +563,8 @@ let result2 = buildName("Bob", undefined);       // still works, also returns "B
 let result3 = buildName("Bob", "Adams", "Sr.");  // error, too many parameters
 let result4 = buildName("Bob", "Adams");         // no error
 
-Rest Parameters:
-----------------
+Rest Parameters
+---------------
 function buildName(firstName: string, ...restOfName: string[]) {
     return firstName + " " + restOfName.join(" ");
 }
@@ -667,8 +667,8 @@ export class ZipCodeValidator implements StringValidator {
     }
 }
 
-tsconfig.json File:
-===================
+tsconfig.json File
+==================
 tsconfig.json is typescript compiler configuration file.
 
 {
@@ -705,8 +705,8 @@ A Decorator is a special kind of declaration that can be attached to a class dec
 
 Decorators use the form @expression, where expression must evaluate to a function that will be called at runtime with information about the decorated declaration.
 
-Applying Decorator:
--------------------
+Applying Decorator
+------------------
 function trim(target) {
     return target.trim();
 }
@@ -725,8 +725,8 @@ x
 First 'g' decorator and then 'f' decorator function will be called.
 '@f @g x' is equivalent to f(g(x))
 
-Class Decorators:
------------------
+Class Decorators
+----------------
 A Class Decorator is applied just before a class declaration.
 
 @sealed
@@ -745,8 +745,8 @@ function sealed(constructor: Function) {
     Object.seal(constructor.prototype);
 }
 
-Method Decorators:
-------------------
+Method Decorators
+-----------------
 A Method Decorator is applied just before a method declaration.
 
 class Greeter {

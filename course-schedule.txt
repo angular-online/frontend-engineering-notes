@@ -46,9 +46,38 @@ Session6
 - Spread operator
 - Template literals
 - Arrow Functions
+
+Session7
+--------
 - Classes
 - Symbols
 - for...of loop
 - Object changes
 - Array changes
+
+Session8
+--------
 - Modules
+- TypeScript Installation
+- Data types
+
+Session9
+--------
+- Type assertions
+- Type Inference
+- Destructuring
+- Interfaces
+
+Session10
+---------
+- Classes
+- Functions
+
+Session11
+---------
+- Generics
+- Modules
+- tsconfig.json File
+- Decorators
+- HTML5 Web APIs in TS
+- Typings
