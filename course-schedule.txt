@@ -59,10 +59,10 @@ Session8
 --------
 - Modules
 - TypeScript Installation
-- Data types
 
 Session9
 --------
+- Data types
 - Type assertions
 - Type Inference
 - Destructuring
