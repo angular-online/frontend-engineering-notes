@@ -124,6 +124,11 @@ git fetch upstream => fetch all upstream branches to local
 git checkout master => checkout fork targed branch[master branch here] 
 git merge upstream/master => Merge targeted upstream branch to local branch 
 
+git reset hard
+--------------
+git reset --hard <commit-hash> // Run it in your branch
+git push -f origin branchName // Run it in your branch
+
 git revert command
 git cherry pick
 

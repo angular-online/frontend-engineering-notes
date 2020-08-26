@@ -26,6 +26,9 @@ Run app:
 cd my-app
 ng serve --open
 
+Run app on a different port:
+ng serve --open --port 4600
+
 Folder Structure:
 =================
 src folder contains the application code. All other folders and files outside src helps to  build, test, maintain, document, and deploy the app.
