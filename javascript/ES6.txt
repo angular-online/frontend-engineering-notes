@@ -814,3 +814,5 @@ http://javascript.info/
 http://exploringjs.com/es6/
 
 https://caniuse.com/ - To check the compatability
+
+http://kangax.github.io/compat-table/es6/ - ES6 compatability chart
