@@ -474,21 +474,7 @@ Native elements have native properties like src, name, value etc...
 Custom elements can have custom properties like 'hero' etc...
 
 Native elements have native events like click, keypress, mousemove etc...
-Custom elements can have custom events like 'deleteHeroEvent' etc..   
-
-Native Property Vs Custom Property:
------------------------------------
-<img [src]="heroImageUrl" style="height:50px" />
-<app-display-hero [hero]="hero" (deleteHeroEvent)="delete($event)" ></app-display-hero>
-
-Here 'src' is the native property of native element 'img'. 'hero' is custom property of custom element 'app-display-hero'.
-
-Native Event Vs Custom Event:
------------------------------
-<button (click)="onSave($event)">Save</button>
-<app-display-hero (deleteHeroEvent)="delete($event)" [hero]="hero"></app-display-hero>
-
-Here 'click' is native event of native element 'button'. 'deleteHeroEvent' is custom event of custom element 'app-display-hero'.
+Custom elements can have custom events like 'deleteHeroEvent' etc..
 
 Directives:  
 -----------
@@ -544,102 +530,12 @@ If we want to manipulate the value on change we can use the 'ngModelChange'.
 
 <input [ngModel]="currentHero.name" (ngModelChange)="setUpperCase($event)">
 
-6. Template expressions:
-------------------------
-We use Template expressions in interpolation binding and property binding.
-
-<div> Sum of 1 + 1 is {{ 1 + 1 }} </div>
-<img [src]="heroImageUrl" />
-
-In interpolation binding we write template expression in curly braces {{ expression }}. 
-In property binding we write template expression on right-hand side.  [property]="expression"
-
-The template expression language is a subset of JavaScript syntax. But,it don't support below operators.
-
-  - assignments (=, +=, -=, ...)
-  - new
-  - chaining expressions with ; or ,
-  - increment and decrement operators (++ and --)
-  - bitwise operators | and &
-
-Template expressions supports the template expression operators |(pipe), ?. and !.
-
-Template expression can access the component properties, methods, template input variables and template reference variables.
-
-<div *ngFor="let hero of heroes">{{hero.name}}</div>
-
-<input #heroInput> {{heroInput.value}}
-
-If name collision happens b/w component properties and template variables, then template variables takes higher precedence. In the above example if component also contains the 'hero' property then, template input variable 'let hero' will be printed, not the component property.
-
-Template expressions don't have access to global objects like window, document etc...
-
-Avoid writing complex template expressions. A method call or simple property binding should be the norm.
-
-6.1 Template Expression Operators
-----------------------------------
-The template expression language is a subset of JavaScript syntax supplemented with a few special operators for specific scenarios. These special operators are allowed in template expressions.
-
-http://localhost:4200/components-templates/template-syntax -> Template Expression Operators
-
-Pipe operator ( | )
--------------------
-<div>Hero name: {{currentHero.name | uppercase}}</div>
-<div>{{currentHero | json}}</div>
-
-Safe Navigation Operator ( ?. )
--------------------------------
-<div>The null hero's name is {{nullHero.name}}</div>
-
-The above interpolation gives error: Can't read the property name of null. The view will be brocken. To fix that we use Safe Navigation Operator.
-
-<div>The null hero's name is {{nullHero?.name}}</div>
-
-The non-null assertion operator ( !. )
---------------------------------------
-When we are using strictNullChecks flag, TypeScript compiler will throw errors even if it can't understand whether the variable is null or not.
-
-If we know a variable won't become null in runtime, then we can explicitly tell the TSC that the variable is not a null.
-
-<div *ngIf="hero">
-  The hero's name is {{hero!.name}}
-</div>
-
-7. Template statements
-----------------------
-We use template statements in event binding.
-
-<button (click)="deleteHero()">Delete hero</button>
-
-'deleteHero()' is the template statement here.
-
-Like template expressions, template statements use a language that looks like JavaScript.
-
-The template statement parser differs from the template expression parser and specifically supports both basic assignment (=) and chaining expressions (with ; or ,).
-
-http://localhost:4200/components-templates/template-syntax -> Template Statements
-
-However, certain JavaScript syntax is not allowed:
- - new
- - increment and decrement operators, ++ and --
- - operator assignment, such as += and -=
- - the bitwise operators | and &
- - the template expression operators
-
-<button (click)="onSave($event)">Save</button>
-<button *ngFor="let hero of heroes" (click)="deleteHero(hero)">{{hero.name}}</button>
-<form #heroForm (ngSubmit)="onSubmit(heroForm)"> ... </form>
-
-'onSave' is component method, 'let hero' template input variable, 'heroForm' is template reference variable.
-
-Avoid writing complex template statements. A method call or simple property assignment should be the norm.
-
-8. Binding syntax Overview
+6. Binding syntax Overview
 ---------------------------
-https://angular.io/guide/template-syntax#binding-syntax-an-overview
+https://angular.io/guide/binding-syntax
 
 
-9. Template input variables (let hero)
+7. Template input variables (let hero)
 --------------------------------------
 <div *ngFor="let hero of heroes">{{hero.name}}</div>
 <app-hero-detail *ngFor="let hero of heroes" [hero]="hero"></app-hero-detail>
@@ -648,7 +544,7 @@ The let keyword before hero creates a template input variable. *ngFor directive 
 
 The template input variable 'hero' is accessible on ngFor host element and it's decendents. It can't be accessed through out the template.  
 
-10. Template reference variables ( #hero )
+8. Template reference variables ( #hero )
 -------------------------------------------
 A template reference variable is often a reference to a DOM element within a template.
 
