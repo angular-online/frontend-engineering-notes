@@ -685,7 +685,7 @@ HostBinding
 -----------
 'HostBinding' is a decorator. Using it we can bind the properties of host element(directive / component).
 
-@HostBinding('class') testClass: String = 'some-test-class';
+@HostBinding() class: String = 'some-test-class';
 
 2. Structural directives:
 ------------------------- 
@@ -694,10 +694,6 @@ Structural directives are responsible for HTML layout. They shape or reshape the
 Structural directives are easy to recognize. An asterisk (*) precedes the directive attribute name. Ex: *ngIf, *ngFor etc...
 
 <div *ngIf="hero" class="name">{{hero.name}}</div>
-
-No brackets. No parentheses. Just *ngIf set to a string.
-
-In *ngIf="hero" notation, asterisk(*) is structural directive naming notation and hero in double quotes is structural directive microsyntax. It is not template expression or template statement.
 
 2.1 NgIf:
 ---------
@@ -713,18 +709,6 @@ http://localhost:4200/components-templates/directives -> Structural Directives
 
 The below div will be hidden from the DOM. Not removed.
 <div [style.display]="nullHero ? 'block': 'none'">{{nullHero.name}}</div>
-
-The difference between hiding and removing doesn't matter for a simple paragraph or simple property binding. It does matter when the host element is attached to a resource intensive component. Such a component's behavior continues even when hidden. The component stays attached to its DOM element. It keeps listening to events. Angular keeps checking for changes that could affect data bindings. Whatever the component was doing, it keeps doing.
-
-Although invisible, the component—and all of its descendant components tie up resources. The performance and memory burden can be substantial, responsiveness can degrade, and the user sees nothing.
-
-On the positive side, showing the element again is quick. The component's previous state is preserved and ready to display. The component doesn't re-initialize, an operation that could be expensive. So hiding and showing is sometimes the right thing to do.
-
-If you don't want to maintain the host elelment previous state / nothing happen on re-initialization of the host element you can use 'ngIf'.
-
-Take a movement and think about the consequences of adding, removing elements and creating and destroying components before using ngIf.
-
-'NgIf' is the directive class for '*ngIf' directive.
 
 2.2 The asterisk (*) prefix:
 ----------------------------
