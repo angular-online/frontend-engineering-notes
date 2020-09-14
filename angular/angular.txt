@@ -768,17 +768,17 @@ By using 'trackBy' we can avoid the DOM elelment removal and addition until the 
 
 Angular transforms the *ngFor in similar fashion from asterisk (*) syntax to <ng-template> element.
 
-<div *ngFor="let hero of heroes; let i=index; let odd=odd; trackBy: trackById" [class.dark]="odd">
+<div *ngFor="let hero of heroes; let i=index; let isOdd=odd; trackBy: trackById" [class.dark]="isOdd">
   ({{i}}) {{hero.name}}
 </div>
 
 The above ngFor will be converted to <ng-template> like below.
 
-<ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-odd="odd" [ngForTrackBy]="trackById">
-  <div [class.dark]="odd">({{i}}) {{hero.name}}</div>
+<ng-template ngFor let-hero [ngForOf]="heroes" let-i="index" let-isOdd="odd" [ngForTrackBy]="trackById">
+  <div [class.dark]="isOdd">({{i}}) {{hero.name}}</div>
 </ng-template>
 
-The let keyword declares a template input variable that you reference within the template. The input variables in this example are hero, i, and odd. The parser translates let hero, let i, and let odd into variables named, let-hero, let-i, and let-odd.
+The let keyword declares a template input variable that you reference within the template. The input variables in this example are hero, i, and isOdd. The parser translates let hero, let i, and let isOdd into variables named, let-hero, let-i, and let-isOdd.
 
 We should apply only one structural directive to one element. Angular don't allow us to apply more than one structural directive on an elelment.
 
