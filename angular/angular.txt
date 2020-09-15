@@ -1031,17 +1031,13 @@ Summary of Component Interaction:
 
 Component Lifecycle Hooks
 =========================
-Our Lifecycle contains different phases like birth, childhood, scholing, college, Job, marriage, children, career etc... Death.
-
-Our Lifecycle is managed by God. But, we have complete access to most of the phases to control it.
-
-component also has a lifecycle(from create to destroy) managed by Angular.
+Component has a lifecycle(from create to destroy) managed by Angular.
 
 Below are few phases in component lifecycle:
 - create component
 - render it
 - create and render its children
-- checks it when its data-bound properties change
+- update when its data-bound properties change
 - destroys it before removing it from the DOM
 
 Angular provides us access to all lifecycle phases through hooks to control it as per our requirement.
