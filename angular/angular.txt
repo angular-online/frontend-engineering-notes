@@ -1272,8 +1272,7 @@ Reactive programming is a kind of programming practice to act on events. Below a
 Reference: http://reactivex.io/
 
 RxJS is a library for Reactive programming in javaScript.
-Reference: http://reactivex.io/rxjs/manual/overview.html [RxJS 5]
-https://rxjs-dev.firebaseapp.com/ [RxJS 6]
+Reference: https://rxjs-dev.firebaseapp.com/
 
 It is used to handle asynchronous operations in an efficient way. Using RxJS we can handle stream of data, stream of events, propagation of change from one place to another etc...
 
