@@ -1496,21 +1496,15 @@ Subject
 
 Observables starts execution on new subscription. For every subscription, observable creates new execution context(i.e new stream).
 
-In the given example, observer2 subscribes to numbersObservable$ after 1.5 seconds. Immediately after subscription, new stream will be created and first value will be emitted at 2.5 seconds.
-
 Observable is unicast.
 
 Observable creates multiple instances.
 
 In case of Subject, when we create a new subject it creates an execution context(i.e stream). If we subscribe to that subject, the subscriber will be tied to the existing stream. The lapsed values won't be emitted to new subscriber. next value will be received by new subscribers.
 
-In given example, for numbersSubject, observer2 subscribes at 1.5 seconds, so it will receive the next value at 2 seconds.
-
 Subject is multicast.
 
 Subject is singleton.
-
-If we expose subject to outside service, from other places also we can emit the values. To prevent it we can convert subject to observable and expose the observable to outside of service.
 
 Observable created from subjects are also multicast and singletons.
 
@@ -1603,7 +1597,7 @@ let asyncSubject = new AsyncSubject();
 
 Operators
 ---------
-Operators are functions that build on observables foundation to enable sophisticated manipulation of collections. For example, RxJS defines operators such as map(), filter(), concat(), and flatMap().
+Operators are functions that build on observables foundation to enable sophisticated manipulation of collections. For example, RxJS defines operators such as map(), filter(), concat(), and etc... other.
 
 Operators take configuration options, and they return a function that takes a source observable.
 
