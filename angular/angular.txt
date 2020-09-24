@@ -2198,8 +2198,9 @@ http://localhost:4200/ngmodules/eager-vs-lazy-loading
 'CountingService' is part of 'CounterOneModule'. 'CounterLazyModule' is lazily loaded. If we import 'CounterOneModule' in 'CounterLazyModule', 'CountingService' will get duplicate instance.
 
 To avoid that, we can do below,
-1. Use forRoot() method in 'CounterOneModule'.
-2. Remove 'CountingService' from 'CounterOneModule' and provide it in 'AppModule'. But, registering too many providers in 'AppModule' is not a good thing. So, seperate the providers and put them in 'CoreModule'.  
+1. Always register sercives through providedIn: root. 
+2. Use forRoot() method in 'CounterOneModule'.
+3. Remove 'CountingService' from 'CounterOneModule' and provide it in 'AppModule'. But, registering too many providers in 'AppModule' is not a good thing. So, seperate the providers and put them in 'CoreModule'.  
 
 One Service can be injected into another Service.
 // Logger Service
@@ -2234,97 +2235,6 @@ export class UserService {
 }
 
 If we don't register a logger provider anywhere, the injector sets the value of logger to null. But, it don't generate any error because it is optional.
-
-DI Providers
-============
-Angular injector doesn't know how to create instances of services. We must educate the injector by specifying providers for every service.
-
-Providers tell the injector how to create the service. Without a provider, the injector would not know that it is responsible for injecting the service nor be able to create the service.
-
-We register our provides like below.
-
-providers: [Logger]
-
-The expanded provider configuration is an object literal with two properties.
-
-providers: [{ provide: Logger, useClass: Logger }]
-
-The provide property holds the "token" that serves as the key for configuring the injector.
-
-The second property is a provider definition object, which tells the injector how to create the dependency value. The provider-definition key can be useClass, as in the example. It can also be useExisting, useValue, or useFactory. Each of these keys provides a different type of dependency, as discussed below.
-
-Use different names for token and provider
-------------------------------------------
-providers: [{ provide: Logger, useClass: BetterLogger }]
-
-Here 'Logger' is token and 'BetterLogger' class instance will be supplied when we request with 'Logger' token.
-
-Dependency injection tokens
----------------------------
-When we configure an injector with a provider, we associate that provider with a DI token. The injector maintains an internal token - provider map. The token is the key to the map.
-
-let Logger = new InjectionToken<MyInterface>('Logger');
-
-providers: [{ provide: Logger, useClass: BetterLogger }]
-
-Aliased class providers
------------------------
-If we want to provide same class instance with two tokens then we use 'useExisting'.
-
-providers: [ NewLogger,
-  // Alias OldLogger w/ reference to NewLogger
-  { provide: OldLogger, useExisting: NewLogger}]
-
-For example 'OldLogger' token is used in many components and services(Appox. 100 places in app). If we want to use 'NewLogger' in place of 'OldLogger', then we have to update all the places where we used 'OldLogger' token.
-
-In our example code 'NewLogger' and 'OldLogger' both the tokens supply the same instance of 'NewLogger' service.
-
-If we do like below,
-
-[ NewLogger,
-  // Not aliased! Creates two instances of `NewLogger`
-  { provide: OldLogger, useClass: NewLogger}]
-
-Here two instances of 'NewLogger' service will be created. 'NewLogger' token supply one instance and 'OldLogger' token supply another instance of same service.
-
-Value providers
----------------
-const silentLogger = {
-  logs: ['Message 1', 'Message 2'],
-  log: function() {}
-};
-
-[{ provide: Logger, useValue: silentLogger }]
-
-Using 'useValue' we registered 'silentLogger' object.
-
-Tree-shakable providers
------------------------
-If an application isn't injecting a service, it shouldn't be included in the build.
-
-Tree-shaking means identifying the un-used code and excluding it from build.
-
-services provided at the NgModule or component level are not tree-shakable.
-
-import { UserService } from './user-service.ts';
-
-@NgModule({
-  providers: [UserService]
-})
-export class UserModule {
-
-}
-
-Eventhough, UserService is not used in any other place in the app, we can't avoid it from build.
-
-We can make a provider tree-shakable by specifying it in the @Injectable() decorator.
-
-@Injectable({
-  providedIn: 'root'
-})
-export class Service {
-
-}
 
 Entry Components
 ----------------
